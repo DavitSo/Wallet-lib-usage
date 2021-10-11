@@ -25,5 +25,5 @@ async function createAddress(passphrase) {
 }
 
 module.exports = {
-  createWallet: createAddress,
+  createAddress: createAddress,
 };

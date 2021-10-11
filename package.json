@@ -8,7 +8,8 @@
     "lint": "eslint --fix ."
   },
   "dependencies": {
-    "wallet-lib": "git@github.com:DavitSo/wallet-lib.git",
+    "wallet-lib": "git@github.com:DavitSo/wallet-lib.git#v1.0.0-dev",
+    "react-native-sensitive-info": "^5.5.8",
     "@dashevo/dashcore-lib": "^0.19.26",
     "redis": "^3.1.2",
     "bluebird": "^3.7.2"
