@@ -3,7 +3,6 @@
 // eslint-disable-next-line no-unused-vars
 const {Mnemonic, PrivateKey} = require('@dashevo/dashcore-lib');
 const {secureStorage} = require('./secure-storage');
-const {PrivateKeyEntryKeyInStorage} = require('./constants');
 
 /**
  * Generates new mnemonic
@@ -30,7 +29,7 @@ async function showMnemonicToUser(mnemonic) {
  * @return {Promise<null>}
  */
 function savePrivateKey(passphrase, privateKey) {
-  return secureStorage.setItem(PrivateKeyEntryKeyInStorage, privateKey.toString(), {});
+  return secureStorage.setItem(passphrase, privateKey.toString(), {});
 }
 
 /**
@@ -39,7 +38,7 @@ function savePrivateKey(passphrase, privateKey) {
  * @return {Promise<*>}
  */
 function loadPrivateKey(passphrase) {
-  return secureStorage.getItem(PrivateKeyEntryKeyInStorage, {});
+  return secureStorage.getItem(passphrase, {});
 }
 
 module.exports = {

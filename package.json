@@ -2,21 +2,22 @@
   "name": "wallet-lib-usage",
   "version": "1.0.0",
   "description": "New wallet lib usage",
+  "transformIgnorePatterns": [
+    "node_modules/(?!(@react-native|react-native|react-native-vector-icons)/)"
+  ],
   "scripts": {
     "start": "node app.js",
     "test": "jest --passWithNoTests ",
     "lint": "eslint --fix ."
   },
   "dependencies": {
-    "wallet-lib": "git@github.com:DavitSo/wallet-lib.git#v1.0.0-dev",
+    "wallet-lib": "git@github.com:DavitSo/wallet-lib.git#v1.1.0-dev",
     "react-native-sensitive-info": "^5.5.8",
     "@dashevo/dashcore-lib": "^0.19.26",
-    "redis": "^3.1.2",
-    "bluebird": "^3.7.2"
+    "@babel/preset-env": "^7.15.8"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
-    "@babel/preset-env": "^7.15.8",
     "babel-eslint": "^10.1.0",
     "jest": "^27.2.4",
     "jest-extended": "^0.11.5",
