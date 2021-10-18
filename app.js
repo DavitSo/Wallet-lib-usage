@@ -5,26 +5,37 @@ require('./src/network-settings');
 
 const utils = require('./src/utils');
 const {createAddress} = require('./src/create-address');
+const {PrivateKey} = require('@dashevo/dashcore-lib');
 
-// TODO Correct package.json file
+let address = '';
+let wallet = null;
+let account = null;
+createAddress('').then((addr) => {
+  address = addr;
+  console.log('ADDRESS : ', address.toString());
+  const options = {};
+  wallet = new Wallet({...options, network: 'testnet', address: address,
+    transport: {dapiAddresses: ['127.0.0.1:2501:2500', '127.0.0.1:2501:3006']}});
+  return wallet.getAccount();
+}).then((acc) => {
+  account = acc;
 
-const address = createAddress('');
+  console.log('Address total balance : ', account.getTotalBalance());
+  console.log('Address confirmed balance : ', account.getConfirmedBalance());
 
-const options = {};
+  const privateKey = utils.loadPrivateKey('');
+  const pk = new PrivateKey(privateKey);
+  return account.createTransaction({
+    recipient: ' VLssV73exU8smfjHBTBizfV5SjZqHft1NL',
+    satoshis: 10000,
+    privateKeys: [pk],
+  });
+}).then((transaction) => {
+  return account.broadcastTransaction(transaction);
+})
+    .then((d) => console.log('Transaction broadcast!\nTransaction ID:', d))
+    .catch((error) => console.log('Error details : ', error))
+    .finally(() => wallet.disconnect());
+
 // TODO implement/discuss first time - from mnemonic, or load from storage and then create address from private key
-const wallet = new Wallet({...options, network: 'testnet', address: address});
-
-const account = await wallet.getAccount();
-
-const privateKey = await utils.loadPrivateKey(`WalletId:${wallet.walletId}`);
-
-const rawtx = account.createTransaction({
-  recipient: address,
-  satoshis: 1,
-  privateKeys: [privateKey],
-});
-
-const tx = account.sign(rawtx, privateKey);
-
-await account.broadcastTransaction(tx);
 

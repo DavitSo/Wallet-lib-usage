@@ -11,8 +11,7 @@
     "lint": "eslint --fix ."
   },
   "dependencies": {
-    "wallet-lib": "git@github.com:DavitSo/wallet-lib.git#v1.1.0-dev",
-    "react-native-sensitive-info": "^5.5.8",
+    "wallet-lib": "git@github.com:DavitSo/wallet-lib.git#v1.4.0-dev",
     "@dashevo/dashcore-lib": "^0.19.26",
     "@babel/preset-env": "^7.15.8"
   },

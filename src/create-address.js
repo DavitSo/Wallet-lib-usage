@@ -11,7 +11,7 @@ const {Mnemonic} = require('@dashevo/dashcore-lib');
  */
 async function createAddress(passphrase) {
   // create mnemonic and show to user
-  const mnemonic = new Mnemonic();
+  const mnemonic = new Mnemonic('ask smile visit napkin response person leopard write spring steak reform garment');
   await utils.showMnemonicToUser(mnemonic);
 
   // create and save private key into storage
