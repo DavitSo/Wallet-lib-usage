@@ -11,7 +11,7 @@
     "lint": "eslint --fix ."
   },
   "dependencies": {
-    "wallet-lib": "git@github.com:DavitSo/wallet-lib.git#v1.4.0-dev",
+    "wallet-lib": "git@github.com:DavitSo/wallet-lib.git#v1.6.11-dev",
     "@dashevo/dashcore-lib": "^0.19.26",
     "@babel/preset-env": "^7.15.8"
   },
