@@ -13,10 +13,13 @@ wallet = new Wallet({...options, network: 'testnet', address: 'VLssV73exU8smfjHB
 wallet.getAccount().then(async (acc) => {
     account = acc;
 
-    console.log('Address total balance : ', account.getTotalBalance());
-    console.log('Address confirmed balance : ', account.getConfirmedBalance());
-    const response = await wallet.getAddressBalance("VLssV73exU8smfjHBTBizfV5SjZqHft1NL");
-    console.log(response);
+    //console.log('Address total balance : ', account.getTotalBalance());
+    //console.log('Address confirmed balance : ', account.getConfirmedBalance());
+    //const response = await wallet.getAddressBalance("VLssV73exU8smfjHBTBizfV5SjZqHft1NL");
+    //console.log('BALANCE : ', response);
+
+    const fee = await wallet.getTransactionFee("VLssV73exU8smfjHBTBizfV5SjZqHft1NL", 11);
+    console.log('FEE : ', fee);
 }).finally(() => {
     wallet.disconnect();
 });
