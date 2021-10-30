@@ -9,7 +9,7 @@ let wallet = null;
 let account = null;
 const options = {};
 wallet = new Wallet({...options, network: 'testnet', address: 'VLssV73exU8smfjHBTBizfV5SjZqHft1NL',
-    transport: {dapiAddresses: ['127.0.0.1:2501:2500', '127.0.0.1:2501:3006']}});
+    transport: {dapiAddresses: ['127.0.0.1:2501:8080']}});
 wallet.getAccount().then(async (acc) => {
     account = acc;
 

@@ -15,7 +15,7 @@ createAddress('').then((addr) => {
   console.log('ADDRESS : ', address.toString());
   const options = {};
   wallet = new Wallet({...options, network: 'testnet', address: address,
-    transport: {dapiAddresses: ['127.0.0.1:2501:2500', '127.0.0.1:2501:3006']}});
+    transport: {dapiAddresses: ['127.0.0.1:2501:8080']}});
   return wallet.getAccount();
 }).then((acc) => {
   account = acc;
@@ -26,7 +26,7 @@ createAddress('').then((addr) => {
   const privateKey = utils.loadPrivateKey('');
   const pk = new PrivateKey(privateKey);
   return account.createTransaction({
-    recipient: ' VLssV73exU8smfjHBTBizfV5SjZqHft1NL',
+    recipient: 'VLssV73exU8smfjHBTBizfV5SjZqHft1NL',
     satoshis: 10000,
     privateKeys: [pk],
   });
