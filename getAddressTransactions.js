@@ -12,14 +12,8 @@ wallet = new Wallet({...options, network: 'testnet', address: 'VLssV73exU8smfjHB
     transport: {dapiAddresses: ['127.0.0.1:2501:8080']}});
 wallet.getAccount().then(async (acc) => {
     account = acc;
-
-    //console.log('Address total balance : ', account.getTotalBalance());
-    //console.log('Address confirmed balance : ', account.getConfirmedBalance());
-    //const response = await wallet.getAddressBalance("VLssV73exU8smfjHBTBizfV5SjZqHft1NL");
-    //console.log('BALANCE : ', response);
-
-    const fee = await wallet.getTransactionFee("VLssV73exU8smfjHBTBizfV5SjZqHft1NL", 10000);
-    console.log('FEE : ', fee);
+    const response = await wallet.getTransactions("VLssV73exU8smfjHBTBizfV5SjZqHft1NL");
+    console.log(response);
 }).finally(() => {
     wallet.disconnect();
 });
