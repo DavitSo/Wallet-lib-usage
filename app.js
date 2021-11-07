@@ -13,7 +13,11 @@ let account = null;
 createAddress('').then((addr) => {
   address = addr;
   console.log('ADDRESS : ', address.toString());
-  const options = {};
+  const options = {
+    // autosave: false, // do not save state in storage,
+    // rehydrate: false, // do not rehydrate from saved storage
+    // injectDefaultPlugins: false, // don not subscribe to tx, chain and identity
+  };
   wallet = new Wallet({...options, network: 'testnet', address: address,
     transport: {dapiAddresses: ['127.0.0.1:2501:8080']}});
   return wallet.getAccount();
@@ -27,7 +31,7 @@ createAddress('').then((addr) => {
   const pk = new PrivateKey(privateKey);
   return account.createTransaction({
     recipient: 'VLssV73exU8smfjHBTBizfV5SjZqHft1NL',
-    satoshis: 10000,
+    satoshis: 1000000000,
     privateKeys: [pk],
   });
 }).then((transaction) => {
