@@ -12,13 +12,12 @@ const options = {
     rehydrate: false, // do not rehydrate from saved storage
     injectDefaultPlugins: false, // don not subscribe to tx, chain and identity
 };
-wallet = new Wallet({...options, network: 'testnet', address: 'VLssV73exU8smfjHBTBizfV5SjZqHft1NL',
+wallet = new Wallet({...options, network: 'testnet', address: 'VTa6MGEipZNAsKyGsgZuqdx1VirHA2E44P',
     transport: {dapiAddresses: ['127.0.0.1:2501:8080']}});
 wallet.getAccount().then(async (acc) => {
     account = acc;
-
-    const fee = await wallet.getTransactionFee("VLssV73exU8smfjHBTBizfV5SjZqHft1NL", 4380);
-    console.log('FEE : ', fee);
+    const response = await wallet.getAddressUTXO("VTa6MGEipZNAsKyGsgZuqdx1VirHA2E44P");
+    console.log(response);
 }).finally(() => {
     wallet.disconnect();
 });
