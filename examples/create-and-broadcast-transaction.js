@@ -1,10 +1,10 @@
 'use strict';
 
 const {Wallet} = require('wallet-lib');
-require('./src/network-settings');
+require('./../src/network-settings');
 
-const utils = require('./src/utils');
-const {createAddress} = require('./src/create-address');
+const utils = require('./../src/utils');
+const {createAddress} = require('./../src/create-address');
 const {PrivateKey} = require('@dashevo/dashcore-lib');
 
 let address = '';
@@ -23,9 +23,6 @@ createAddress('').then((addr) => {
   return wallet.getAccount();
 }).then((acc) => {
   account = acc;
-
-  console.log('Address total balance : ', account.getTotalBalance());
-  console.log('Address confirmed balance : ', account.getConfirmedBalance());
 
   const privateKey = utils.loadPrivateKey('');
   const pk = new PrivateKey(privateKey);

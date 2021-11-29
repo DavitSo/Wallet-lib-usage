@@ -17,7 +17,7 @@ async function createAddress(passphrase) {
   // create and save private key into storage
   const hdPrivateKey = mnemonic.toHDPrivateKey(passphrase, Networks.get('testnet'));
   const privateKey = hdPrivateKey.privateKey;
-  await utils.savePrivateKey(passphrase, privateKey); // TODO discuss for 'single user'/'multiple wallet' case
+  await utils.savePrivateKey(passphrase, privateKey);
 
   // TODO some checking with mnemonic and keys
   // TODO change wallet lib to remove private key storing

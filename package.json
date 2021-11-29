@@ -6,7 +6,7 @@
     "node_modules/(?!(@react-native|react-native|react-native-vector-icons)/)"
   ],
   "scripts": {
-    "start": "node app.js",
+    "start": "node examples/create-and-broadcast-transaction.js",
     "test": "jest --passWithNoTests ",
     "lint": "eslint --fix ."
   },
