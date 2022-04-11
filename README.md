@@ -1,6 +1,10 @@
 # Code examples of wallet-lib
 
 ## Create autosave/loading state wallet with transaction sync plugin ON
+autosave - save wallet current state in a cache
+rehydrate - load wallet state from cache
+injectDefaultPlugins - enable transactions and chain sync workers.
+Note: Sync only addresses belongs to wallet, not all black chain info
 See example/new-wallet-sync file
 
 ## Create address, transaction and broadcast it
