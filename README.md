@@ -1,5 +1,8 @@
 # Code examples of wallet-lib
 
+## Create autosave/loading state wallet with transaction sync plugin ON
+See example/new-wallet-sync file
+
 ## Create address, transaction and broadcast it
 Creates address (by hardcoded mnemonic). Show mnemonic and address. Save if needed.
 Creates a transaction for created account.
