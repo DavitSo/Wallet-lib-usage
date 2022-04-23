@@ -23,6 +23,18 @@ createAddress('').then((addr) => {
   return wallet.getAccount();
 }).then((acc) => {
   account = acc;
+  account.setMaxListeners(30);
+
+  // lesten to account confirmed transactions, fiered when writen into storage
+  acc.on('FETCHED/CONFIRMED_TRANSACTION', (tx) => console.log('EVENTS.FETCHED/CONFIRMED_TRANSACTIONS,----------- ', tx));
+
+  // listen to account unconfirmed transactions,
+  acc.on('FETCHED/UNCONFIRMED_TRANSACTION', (tx) => console.log('EVENTS.FETCHED/CONFIRMED_TRANSACTIONS,----------- ', tx));
+
+  // height, this code will simulate waiting, can be tested via cli, when code is in waiting stage
+  acc.on(EVENTS.BLOCKHEIGHT_CHANGED, (info) => console.log('EVENTS.BLOCKHEIGHT_CHANGED ----------- ', info));
+  console.log('Waiting for the blockheight change');
+  await new Promise(resolve => setTimeout(resolve, 100000));
 
   const privateKey = utils.loadPrivateKey('');
   const pk = new PrivateKey(privateKey);

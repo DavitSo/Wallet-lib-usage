@@ -1,4 +1,5 @@
 'use strict';
+import {PrivateKey} from "@dashevo/dashcore-lib";
 
 const {Wallet} = require('wallet-lib');
 require('./../src/network-settings');
